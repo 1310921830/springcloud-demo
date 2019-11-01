@@ -1,2 +1,41 @@
 writer: 
   jason(cry)
+
+server:
+  port: 8889
+  servlet:
+    context-path: /demo
+spring:
+  application:
+    name: config-client
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/yuantu?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+  devtools:
+    restart:
+      enabled: true
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.example.configclient.entity
+  configuration:
+    #开启驼峰功能
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+#  swagger地址
+swagger:
+  host: 127.0.0.1:8889
